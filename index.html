@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venmo Support - 24/7 Assistance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0f4f8;
+        }
+
+        header {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%2316a085" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,170.7C384,160,480,160,576,181.3C672,203,768,245,864,245.3C960,245,1056,203,1152,192C1248,181,1344,203,1392,213.3L1440,224L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            background-color: #16a085;
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem 8rem;
+            position: relative;
+        }
+
+        header .logo-container {
+            background-color: white;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            width: 150px;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .call-button-fixed {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #e67e22;
+            color: white;
+            padding: 1.2rem;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            z-index: 1000;
+        }
+
+        .call-button-fixed img {
+            width: 35px;
+            height: 35px;
+            filter: brightness(0) invert(1); /* Makes icon white */
+        }
+
+        .call-button-fixed:hover {
+            transform: scale(1.1);
+            background-color: #d35400;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: -4rem auto 2rem;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #16a085, #e67e22);
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .section img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+            border-radius: 50%;
+            background-color: #e8f4f2;
+            padding: 0.5rem;
+        }
+
+        .section h2 {
+            font-size: 1.6rem;
+            color: #16a085;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+        }
+
+        .section p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .call-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: #e67e22;
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .call-button img {
+            width: 18px;
+            height: 18px;
+            margin-right: 0.5rem;
+            filter: brightness(0) invert(1); /* Makes icon white */
+        }
+
+        .call-button:hover {
+            background-color: #d35400;
+        }
+
+        .disclaimer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #777;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: #f8f8f8;
+            border-radius: 15px;
+            max-width: 800px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #16a085, #1abc9c);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .call-button-fixed {
+                width: 60px;
+                height: 60px;
+                padding: 1rem;
+            }
+
+            .call-button-fixed img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .container {
+                margin: -3rem auto 1rem;
+                padding: 1rem;
+            }
+
+            .section {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Venmo_Logo.svg" alt="Venmo Logo">
+        </div>
+        <h1>Venmo 24/7 Support by Shop New AVS</h1>
+    </header>
+
+    <a href="tel:+1-800-555-1234" class="call-button-fixed">
+        <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Call Icon">
+    </a>
+
+    <div class="container">
+        <div class="section">
+            <img src="https://img.icons8.com/color/96/000000/customer-support.png" alt="Support Icon">
+            <h2>Support You Can Count On – Anytime, Anywhere</h2>
+            <p>Have a question about your Venmo account or a payment that didn’t go as planned? Our customer support team is available 24/7 to help resolve issues, answer questions, and guide you every step of the way.</p>
+            <a href="tel:+1-800-555-1234" class="call-button">
+                <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Call Icon">
+                Contact Us: QuickFix
+            </a>
+        </div>
+
+        <div class="section">
+            <img src="https://img.icons8.com/color/96/000000/help.png" alt="Help Icon">
+            <h2>Start Smart with Our Help Center</h2>
+            <p>New to Venmo or facing a challenge? Visit our Help Center for detailed how-to articles, beginner guides, and helpful tips. We make getting started and staying informed as simple as possible.</p>
+            <a href="tel:+1-800-555-1234" class="call-button">
+                <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Call Icon">
+                Get Started: EasyGuide
+            </a>
+        </div>
+
+        <div class="section">
+            <img src="https://img.icons8.com/color/96/000000/lock.png" alt="Security Icon">
+            <h2>Trusted & Secure Payments</h2>
+            <p>Your security is our priority. We protect your linked cards and bank accounts with advanced encryption and secure authentication. You can send and receive money with confidence, every time.</p>
+            <a href="tel:+1-800-555-1234" class="call-button">
+                <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Call Icon">
+                Secure Now: SafePay
+            </a>
+        </div>
+
+        <div class="section">
+            <img src="https://img.icons8.com/color/96/000000/error.png" alt="Dispute Icon">
+            <h2>Handle Disputes Easily</h2>
+            <p>Mistaken or unauthorized charges? We offer simple tools to report issues and request a reversal. Our support team works fast to resolve disputes fairly, ensuring your funds stay protected.</p>
+            <a href="tel:+1-800-555-1234" class="call-button">
+                <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Call Icon">
+                Fix Issue: FastResolve
+            </a>
+        </div>
+
+        <div class="section">
+            <img src="https://img.icons8.com/color/96/000000/shield.png" alt="Fraud Icon">
+            <h2>Real-Time Fraud Protection</h2>
+            <p>Our systems use smart technology to monitor transactions in real-time. From detecting suspicious activity to blocking threats, your Venmo account is shielded day and night—automatically.</p>
+            <a href="tel:+1-800-555-1234" class="call-button">
+                <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Call Icon">
+                Stay Safe: FraudGuard
+            </a>
+        </div>
+
+        <div class="section">
+            <img src="https://img.icons8.com/color/96/000000/security-checked.png" alt="Tech Icon">
+            <h2>Built on Advanced Security</h2>
+            <p>With behavior-based analytics, encrypted connections, and intelligent risk detection, your digital wallet is protected at every level. We stay one step ahead of fraud, so you don’t have to worry.</p>
+            <a href="tel:+1-800-555-1234" class="call-button">
+                <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Call Icon">
+                Tech Support: SecureTech
+            </a>
+        </div>
+
+        <div class="section">
+            <img src="https://img.icons8.com/color/96/000000/wallet.png" alt="Wallet Icon">
+            <h2>Why Choose Shop New AVS?</h2>
+            <p>We're more than support—we’re your trusted tech partner. As an independent service provider, we focus on clear answers, real help, and secure solutions tailored to Venmo users.</p>
+            <a href="tel:+1-800-555-1234" class="call-button">
+                <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Call Icon">
+                Join Us: TrustAVS
+            </a>
+        </div>
+    </div>
+
+    <div class="disclaimer">
+        <p>⚠ Disclaimer: Shop New AVS is a third-party service provider. We are not affiliated with Venmo, PayPal, or any official payment platform. For official services, please refer to the respective companies’ websites.</p>
+    </div>
+
+    <footer>
+        <p>© 2025 Shop New AVS. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
